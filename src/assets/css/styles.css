@@ -1,0 +1,11 @@
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+
+.bg-body-logo {
+    background: #f4f5f7 url(../svg/xrp-logo.svg) no-repeat;
+    background-position: left top;
+    background-size: 50% auto;
+}

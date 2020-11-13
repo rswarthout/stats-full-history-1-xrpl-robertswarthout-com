@@ -1,0 +1,34 @@
+{
+  "scripts": {
+    "build:dev": "webpack --mode development && mkdir -p ./dist/assets/json && cp ./src/assets/json/* ./dist/assets/json/ ",
+    "build:prod": "export NODE_ENV=production && webpack --mode production",
+    "deploy": "find ./dist/ -name '.DS_Store' -type f -delete && aws s3 cp ./dist/ s3://stats-full-history-1-xrpl-net/ --profile stats-full-history-1-xrpl-net --recursive --cache-control 'no-cache' "
+  },
+  "dependencies": {
+    "@tailwindcss/ui": "^0.7.2",
+    "axios": "^0.21.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "recharts": "^1.8.5",
+    "tailwindcss": "^1.9.6"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/plugin-transform-runtime": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.5",
+    "@babel/runtime": "^7.12.5",
+    "babel-loader": "^8.2.1",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^6.3.0",
+    "css-loader": "^5.0.1",
+    "html-webpack-plugin": "^4.5.0",
+    "html-webpack-skip-assets-plugin": "^0.0.2",
+    "mini-css-extract-plugin": "^1.3.0",
+    "postcss-loader": "^4.0.4",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.4.0",
+    "webpack-cli": "^4.2.0"
+  }
+}
