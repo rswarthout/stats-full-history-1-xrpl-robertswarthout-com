@@ -10,6 +10,19 @@ import {
     YAxis,
 } from 'recharts';
 
+const CustomTooltip = ({ active, payload, label }) => {
+    if (active) {
+      return (
+        <div className="custom-tooltip">
+          <p className="label">{`${label} : ${payload[0].value}`}</p>
+          <p className="desc">Anything you want can be displayed here.</p>
+        </div>
+      );
+    }
+
+    return null;
+};
+
 export default class BandwidthGraph extends Component {
     render() {
 
@@ -45,11 +58,11 @@ export default class BandwidthGraph extends Component {
                 >
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="label" />
-                    <YAxis />
+                    <YAxis unit=" GB" />
                     <Tooltip />
                     <Legend />
-                    <Bar dataKey="rx" stackId="a" fill="#4299e1" />
-                    <Bar dataKey="tx" stackId="a" fill="#48bb78" />
+                    <Bar dataKey="rx" stackId="a" fill="#4299e1" unit=" GB" name="Rx" />
+                    <Bar dataKey="tx" stackId="a" fill="#48bb78" unit=" GB" name="Tx" />
                 </BarChart>
             </ResponsiveContainer>
         );

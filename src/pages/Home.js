@@ -43,13 +43,14 @@ export default class Home extends React.Component {
             });
 
         let uplink30Days = data.data.interfaces[0].traffic.day.slice(-31);
+        let avgDays = data.data.interfaces[0].traffic.day.slice(-31, -1);
         let totalBandwidth = 0;
         let totalDays = 0;
 
-        for (var i = 0; i < uplink30Days.length; i++) {
-            totalBandwidth += uplink30Days[i].rx + uplink30Days[i].tx;
+        for (var i = 0; i < avgDays.length; i++) {
+            totalBandwidth += avgDays[i].rx + avgDays[i].tx;
 
-            if (uplink30Days[i].rx !== 0 && uplink30Days[i].tx !== 0) {
+            if (avgDays[i].rx !== 0 && avgDays[i].tx !== 0) {
                 totalDays++;
             }
         }
@@ -107,11 +108,11 @@ export default class Home extends React.Component {
                         <h2 className="text-4xl leading-9 font-extrabold text-gray-900 sm:text-4xl sm:leading-10">
                             Stats from an XRPL Full-History Node
                         </h2>
-                        <p className="mt-3 text-xl leading-7 text-gray-500 sm:mt-4">
+                        <div className="mt-3 text-xl leading-7 text-gray-500 sm:mt-4">
                             <MiddleEllipsis>
                                 <span>n9Mh83gUuY4hBXVD9geWHsyVwz5h32rjauLWQCZJVTEbCb5TYs21</span>
                             </MiddleEllipsis>
-                        </p>
+                        </div>
                     </div>
                 </div>
                 <div className="mt-10 pb-10 sm:pb-16">
@@ -157,7 +158,7 @@ export default class Home extends React.Component {
                                 <div className="text-md font-bold text-gray-900 text-center my-5">
                                     Bandwidth Consumption by Hour
                                 </div>
-                                <div className="pb-6 pr-10">
+                                <div className="pb-6 pl-2 pr-10">
                                     { graph24Hours }
                                 </div>
                             </div>
@@ -165,7 +166,7 @@ export default class Home extends React.Component {
                                 <div className="text-md font-bold text-gray-900 text-center my-5">
                                     Bandwidth Consumption by Day
                                 </div>
-                                <div className="pb-6 pr-10">
+                                <div className="pb-6 pl-6 pr-10">
                                     { graph30Days }
                                 </div>
                             </div>
