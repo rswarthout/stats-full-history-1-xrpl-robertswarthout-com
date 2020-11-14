@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from "axios";
+import MiddleEllipsis from 'react-middle-ellipsis';
 import BandwidthGraph from '../components/BandwidthGraph';
 
 export default class Home extends React.Component {
@@ -62,7 +63,7 @@ export default class Home extends React.Component {
 
     getReadableFileSizeString(fileSizeInBytes) {
         var i = -1;
-        var byteUnits = [' kB', ' MB', ' GB', ' TB', ' PB', ' EB', ' ZB', ' YB'];
+        var byteUnits = [' kB', ' MB', ' GB', ' TB', ' PB'];
 
         do {
             fileSizeInBytes = fileSizeInBytes / 1024;
@@ -107,7 +108,9 @@ export default class Home extends React.Component {
                             Stats from an XRPL Full-History Node
                         </h2>
                         <p className="mt-3 text-xl leading-7 text-gray-500 sm:mt-4">
-                            n9Mh83gUuY4hBXVD9geWHsyVwz5h32rjauLWQCZJVTEbCb5TYs21
+                            <MiddleEllipsis>
+                                <span>n9Mh83gUuY4hBXVD9geWHsyVwz5h32rjauLWQCZJVTEbCb5TYs21</span>
+                            </MiddleEllipsis>
                         </p>
                     </div>
                 </div>
