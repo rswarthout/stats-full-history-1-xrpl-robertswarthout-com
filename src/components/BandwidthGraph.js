@@ -52,7 +52,7 @@ export default class BandwidthGraph extends Component {
                     margin={{
                         top: 0,
                         right: 0,
-                        left: 0,
+                        left: 10,
                         bottom: 0,
                     }}
                 >
