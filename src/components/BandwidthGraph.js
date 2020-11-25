@@ -12,12 +12,28 @@ import {
 
 const CustomTooltip = ({ active, payload, label }) => {
     if (active) {
-      return (
-        <div className="custom-tooltip">
-          <p className="label">{`${label} : ${payload[0].value}`}</p>
-          <p className="desc">Anything you want can be displayed here.</p>
-        </div>
-      );
+        let total = Number((parseFloat(payload[0].value) + parseFloat(payload[1].value)).toFixed(2));
+
+        return (
+            <div className="bg-white border border-gray-500 rounded-sm shadow-md p-1">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td className="text-left" style={{ color: payload[0].color }}>{ payload[0].name }</td>
+                            <td className="text-right">{ payload[0].value }</td>
+                        </tr>
+                        <tr>
+                            <td className="text-left" style={{ color: payload[1].color }}>{ payload[1].name }</td>
+                            <td className="text-right">{ payload[1].value }</td>
+                        </tr>
+                        <tr>
+                            <td className="text-left pr-1 font-bold">Total</td>
+                            <td className="text-right font-bold">{ total }</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        );
     }
 
     return null;
@@ -59,7 +75,7 @@ export default class BandwidthGraph extends Component {
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="label" />
                     <YAxis unit=" GB" />
-                    <Tooltip />
+                    <Tooltip content={<CustomTooltip />} />
                     <Legend />
                     <Bar dataKey="rx" stackId="a" fill="#4299e1" unit=" GB" name="Rx" />
                     <Bar dataKey="tx" stackId="a" fill="#48bb78" unit=" GB" name="Tx" />
