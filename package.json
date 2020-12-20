@@ -5,13 +5,16 @@
     "deploy": "find ./dist/ -name '.DS_Store' -type f -delete && aws s3 sync ./dist/ s3://stats-full-history-1-xrpl-robertswarthout-com/ --cache-control 'max-age=604800' --delete --profile stats-full-history-1-xrpl-robertswarthout-com --exclude index.html --exclude 'assets/json/*' && aws s3 sync ./dist/ s3://stats-full-history-1-xrpl-robertswarthout-com/ --cache-control 'no-cache' --profile stats-full-history-1-xrpl-robertswarthout-com --exclude 'assets/json/*' "
   },
   "dependencies": {
+    "@tailwindcss/aspect-ratio": "^0.2.0",
+    "@tailwindcss/forms": "^0.2.1",
+    "@tailwindcss/typography": "^0.3.1",
     "@tailwindcss/ui": "^0.7.2",
     "axios": "^0.21.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-middle-ellipsis": "^1.1.0",
     "recharts": "^1.8.5",
-    "tailwindcss": "^1.9.6"
+    "tailwindcss": "^2.0.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.1",
@@ -20,6 +23,7 @@
     "@babel/preset-env": "^7.12.1",
     "@babel/preset-react": "^7.12.5",
     "@babel/runtime": "^7.12.5",
+    "autoprefixer": "^10.1.0",
     "babel-loader": "^8.2.1",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^6.3.0",
