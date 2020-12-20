@@ -2,7 +2,7 @@
   "scripts": {
     "build:dev": "webpack --mode development && mkdir -p ./dist/assets/json && cp ./src/assets/json/* ./dist/assets/json/ ",
     "build:prod": "export NODE_ENV=production && webpack --mode production",
-    "deploy": "find ./dist/ -name '.DS_Store' -type f -delete && aws s3 sync ./dist/ s3://stats-full-history-1-xrpl-net/ --cache-control 'max-age=604800' --delete --profile stats-full-history-1-xrpl-net --exclude index.html --exclude 'assets/json/*' && aws s3 sync ./dist/ s3://stats-full-history-1-xrpl-net/ --cache-control 'no-cache' --profile stats-full-history-1-xrpl-net --exclude 'assets/json/*' "
+    "deploy": "find ./dist/ -name '.DS_Store' -type f -delete && aws s3 sync ./dist/ s3://stats-full-history-1-xrpl-robertswarthout-com/ --cache-control 'max-age=604800' --delete --profile stats-full-history-1-xrpl-robertswarthout-com --exclude index.html --exclude 'assets/json/*' && aws s3 sync ./dist/ s3://stats-full-history-1-xrpl-robertswarthout-com/ --cache-control 'no-cache' --profile stats-full-history-1-xrpl-robertswarthout-com --exclude 'assets/json/*' "
   },
   "dependencies": {
     "@tailwindcss/ui": "^0.7.2",
