@@ -144,9 +144,6 @@ export default class Home extends React.Component {
                 </div>
 
                 <div className="relative pb-10 px-4 sm:px-6">
-                    <div className="absolute inset-0">
-                        <div className="bg-white h-1/3 sm:h-2/3"></div>
-                    </div>
                     <div className="relative max-w-7xl mx-auto">
                         <div className="text-center">
                             <h2 className="text-2xl leading-9 tracking-tight font-bold text-gray-900">
